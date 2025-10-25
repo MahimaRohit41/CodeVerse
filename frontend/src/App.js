@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Navbar from './components/navbar/Navbar.tsx';
+import Home from './components/Pages/Home.tsx';
+import LeaderBoard from './components/Pages/LeaderBoard.tsx';
+import MySubmissions from './components/Pages/MySubmissions.tsx';
+import Compiler from './components/Pages/Compiler.tsx';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+     <Navbar/>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/compiler' element={<Compiler/>}/>
+      <Route path='/leaderboard' element={<LeaderBoard/>}/>
+      <Route path='/mysubmissions' element={<MySubmissions/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
